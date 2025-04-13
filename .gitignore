@@ -24,3 +24,8 @@ postgres_data/
 # React
 frontend/build/
 frontend/node_modules/
+
+#chaves
+/ssh
+/ssh.pub
+/.ssh/
