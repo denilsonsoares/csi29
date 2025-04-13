@@ -1,0 +1,19 @@
+{
+  "name": "CSI29 Dev",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "backend",
+  "workspaceFolder": "/app",
+  "runServices": ["backend", "frontend"],
+  "shutdownAction": "stopCompose",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ],
+  "postCreateCommand": "pip install -r backend/requirements.txt",
+  "remoteUser": "root"
+}
