@@ -15,8 +15,8 @@
     "dbaeumer.vscode-eslint"
   ],
   "postCreateCommand": "pip install -r backend/requirements.txt && cd frontend && npm install",
-  "remoteUser": "vscode",
+  "remoteUser": "root",
   "mounts": [
-  "source=${localEnv:HOME}/.ssh,target=/vscode/.ssh,type=bind"
-]
+    "source=${localEnv:HOME}/.ssh,target=/vscode/.ssh,type=bind"
+  ]
 }

@@ -12,7 +12,7 @@ services:
     command: tail -f /dev/null
     ports:
       - "8000:8000"  # Django
-      - "3000:3000"  # React
+      - "3001:3000"  # React
     depends_on:
       - db
     stdin_open: true
