@@ -1,15 +1,18 @@
 # frontend/Dockerfile
-FROM node:20
+FROM node:18
 
+# Cria diretório de trabalho
 WORKDIR /app
 
-COPY package*.json ./
-
-RUN npm install
-
-RUN apt-get update && apt-get install -y git
-
-
+# Copia os arquivos do projeto para dentro do container
 COPY . .
 
+# Instala dependências
+RUN npm install
+
+# Expõe a porta que o React utiliza
+EXPOSE 3000
+
+# Comando default (pode ser sobrescrito pelo docker-compose)
 CMD ["npm", "start"]
+
