@@ -1,31 +1,26 @@
-version: '3.9'
+version: "3.9"
 
 services:
-  backend:
-    build: ./backend
+  djangonext:
+    container_name: csi29-devcontainer
+    build:
+      context: .
+      dockerfile: docker/local.Dockerfile
     volumes:
-      - .:/app
-    working_dir: /app/backend
+      - .:/www
+    working_dir: /www
     command: tail -f /dev/null
     ports:
-      - "8000:8000"
+      - "8000:8000"  # Django
+      - "3000:3000"  # React
     depends_on:
       - db
-
-  frontend:
-    build: ./frontend
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    working_dir: /app
-    command: npm start
-    ports:
-      - "3000:3000"
     stdin_open: true
     tty: true
 
   db:
-    image: postgres
+    image: postgres:14
+    container_name: csi29-db
     environment:
       POSTGRES_DB: devdb
       POSTGRES_USER: devuser
